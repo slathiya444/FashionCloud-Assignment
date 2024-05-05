@@ -1,0 +1,21 @@
+<!-- upload.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <form method="post" enctype="multipart/form-data" action="{% url 'process_files' %}">
+    {% csrf_token %}
+    <label for="main_file">Main File:</label>
+    <input type="file" id="main_file" name="main_file" required>
+    <br>
+    <label for="mapping_file">Mapping File:</label>
+    <input type="file" id="mapping_file" name="mapping_file">
+    <br>
+    <button type="submit">Process Files</button>
+  </form>
+</body>
+</html>
