@@ -27,7 +27,7 @@ class SizeMatrix(UUIDGenerator, models.Model):
     )
 
     def __str__(self):
-        return f"{self.id}"
+        return f"{self.size_name}"
 
     def save(self, *args, **kwargs):
         # Check if size already exists (assuming size_group_code, size_code, and size_name are unique)

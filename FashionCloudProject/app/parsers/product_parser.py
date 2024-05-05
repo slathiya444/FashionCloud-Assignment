@@ -73,8 +73,7 @@ class ProductParser:
             )
 
             size, _ = SizeMatrix.objects.get_or_create(
-                size=single_map[item.get('size_group_code').get('size_code')] if item.get(
-                    'size_group_code') in single_map
+                size=single_map[item.get('size_group_code').get('size_code')] if 'size_group_code' in single_map
                 else multi_map[item.get('size_group_code')].get('size_code'),
                 size_name=item.get('size_name', None)
             )

@@ -1,7 +1,9 @@
 # app/views.py
 from django.core.files.storage import FileSystemStorage
+from django.db.models import Prefetch
 from django.shortcuts import render
 from .forms import FileUploadForm
+from .models import Product, Article
 from .parsers.map_parser import MappParser
 from .parsers.product_parser import ProductParser
 
@@ -26,13 +28,19 @@ def upload_files(request):
             product_class = ProductParser(main_file_path)
             product_data = product_class.parse(mapping_file_data)
 
+            ## ORM to fetch all articles and associated products
+
+            output = get_article_products()
+            # context = {
+            #     'output': output
+            # }
+
             return render(
                 request,
                 'result.html',
                 {
                     'message': 'Files processed successfully!',
-                    'mapping_data': mapping_file_data if mapping_file_data else None,
-                    'main_data': product_data
+                    'output': output
                 })
     else:
         form = FileUploadForm()
@@ -46,3 +54,21 @@ def read_data_from_form(file):
     filename = fs.save(file.name, file)
     file_path = fs.path(filename)
     return file_path
+
+
+def get_article_products():
+    articles = Article.objects.all().prefetch_related(
+        Prefetch('product_set', queryset=Product.objects.select_related('product_description'))
+    )
+
+    output = []
+    for article in articles:
+        article_output = f"Article Number: {article.article_number}\n"
+        product_output = []
+        for product in article.product_set.all():
+            product_output.append(f"  - {product.ean} | {product.brand} | {product.supplier} | {product.product_description}")
+        article_output += "\n".join(product_output)
+        article_output += f"\n{article}"
+        output.append(article_output)
+
+    return "\n\n".join(output)
