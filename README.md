@@ -43,6 +43,7 @@ Step 4: Execution
 - create user by using command `python manage.py createsuperuser`
 - run the app by `runserver` command, visit `127.0.0.1:8000/upload/` to upload given file in `problem_statement_files` folder in this project
 - When submit, the heirarchy will be displayed on `result` endpoint
+- Also, there was only 2 files to parse, hence I have designed the normal parsers, if more types of files are there, I would definately design `Inversion of Control` methods and `parser configuration injection` simalteniously.
 
 
 ##Part 2 : Thinking (FlowChart)
