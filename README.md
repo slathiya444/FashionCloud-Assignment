@@ -6,6 +6,7 @@ As the problem statement has 3 parts, i am deviding this repository in 3 parts.
 - part 2 is thinking, so I am putting the future developments I thought.
 - Part 3 is architecture, in that I am adding some documents with diagrams.
 
+
 ##Part 1 : Coding
 As you can see that all the coding part I have included in folder named `FashionCloudProject`.
 
@@ -43,7 +44,8 @@ Step 4: Execution
 - run the app by `runserver` command, visit `127.0.0.1:8000/upload/` to upload given file in `problem_statement_files` folder in this project
 - When submit, the heirarchy will be displayed on `result` endpoint
 
-##Part 2 : Thik (FlowChart)
+
+##Part 2 : Thinking (FlowChart)
 
 For part 2 of the assignment, I have created seperate document named [FashionCloud-Part2.pdf](part_2/FashionCloud-Part2.pdf) which explains how would i approach the same assignment when we think of extention.
 In that file I have included a flowchart and my take on how would I do that.
@@ -54,6 +56,7 @@ For Future Prospect, I would do following:
 - I have done this assignment by the intention of getting interviewing, hence I might not be considering all the cases in terms of data validations and authorization/authentication, but for future needs, I would definately consider developing token based authorization, that works with session, for additional security hands.
 - For the coding, I hahve used sqlite db, but by seeing the data, I would choose to go for NoSQL, if thinking of cloud, I would go for DynamoDB, with Reddis cache management or ElasticSearch.
 - At last, I would consider to store data temporarily while processing locally, so that we can reduce the number of trips to database.
+
 
 ##Part 3: Architecture on AWS
 
