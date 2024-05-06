@@ -57,7 +57,7 @@ For Future Prospect, I would do following:
 - I have done this assignment by the intention of getting interviewing, hence I might not be considering all the cases in terms of data validations and authorization/authentication, but for future needs, I would definately consider developing token based authorization, that works with session, for additional security hands.
 - For the coding, I hahve used sqlite db, but by seeing the data, I would choose to go for NoSQL, if thinking of cloud, I would go for DynamoDB, with Reddis cache management or ElasticSearch.
 - At last, I would consider to store data temporarily while processing locally, so that we can reduce the number of trips to database.
-
+- I would implement datamodels, to use prebuilt functionalities for models, and pydentic schemas too, for additional validation in model values.
 
 ##Part 3: Architecture on AWS
 
